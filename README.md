@@ -1,10 +1,18 @@
-# Nuxt Minimal Starter
+# Brief explanation of implementation approach
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+I am using useAsyncData to fetch the data from the API. I have implemented randomization logic that selects 10 unique stories from the topstories API.
 
-## Setup
+I am also implementing parallel data fetching with Promise.all for both stories and user data and also joining the data with author karma information.
 
-Make sure to install dependencies:
+For State Management, I am using Vue 3 Composition API with reactive refs for sorting. The computed property sortedStories is recalculated when sort parameters change.
+
+Navigation state is passed through NuxtLink to share story data between routes without refetching.
+
+For routing and navigation, I am using Nuxt file-based routing.
+
+# Setup instructions
+
+Clone the repository and make sure to install dependencies:
 
 ```bash
 # npm
@@ -73,11 +81,3 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
-
-# Brief explanation of implementation approach
-
-I am using useAsyncData to fetch data, and I have implemented randomization logic that selects 10 unique stories from the topstories API.
-I am also implementing parallel data fetching with Promise.all for both stories and user data and also joining the data with author karma information.
-Vue 3 Composition API with reactive refs is used for sortBy and sortOrder. Also, I am using the computed property sortedStories for reactive sorting that will recalculate when sort parameters change.
-Navigation state is passed through NuxtLink to share story data between routes without refetching.
-For routing and navigation, I am using Nuxt file-based routing.
